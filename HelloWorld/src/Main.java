@@ -1,31 +1,10 @@
-import java.time.LocalDateTime;
-import java.time.Month;
-
 public class Main {
 
     public static void main(String[] args) {
-        Month month = LocalDateTime.now().getMonth();
+        int[] numbers = {1, 1, 2, 3, 5, 8, 13, 21};
 
-        switch (month) {
-            case MARCH:
-            case APRIL:
-            case MAY:
-                System.out.println(month + "は春です");
-                break;
-            case JUNE:
-            case JULY:
-            case AUGUST:
-                System.out.println(month + "は夏です");
-                break;
-            case SEPTEMBER:
-            case OCTOBER:
-            case NOVEMBER:
-                System.out.println(month + "は秋です");
-                break;
-            default:
-                System.out.println(month + "は冬です");
-                break;
+        for (int number : numbers) {
+            System.out.println(number);
         }
-
     }
 }
