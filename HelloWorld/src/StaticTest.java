@@ -1,13 +1,15 @@
 public class StaticTest {
-    static String staticField = "World"; // クラスフィールド
+    static final String GREETING_MESSAGE = "World"; // クラスフィールドにfinal修飾子を付けてクラス定数を宣言
 
-    static String staticMethod() { // クラスメソッド
+    static String staticField = "World";
+
+    static String staticMethod() {
         return "yay!";
     }
 
-    String instanceField = "Hello";
+    String instanceField = GREETING_MESSAGE;
 
     String instanceMethod() {
-        return  instanceField + " " + staticField + " " + staticMethod();
+        return instanceField + " " + staticField + " " + staticMethod();
     }
 }
