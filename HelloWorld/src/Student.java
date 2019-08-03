@@ -1,14 +1,29 @@
+/**
+ * 生徒の点数を扱うクラス
+ */
 class Student {
-    String name;
+    /** 名前 */
+    private String name;
+
+    /** 点数 */
     int score;
 
-    Student(String name, int score) {
-        this.name = name;
-        this.score = score;
+    /**
+     * 名前と点数を指定してインスタンスを生成する
+     * @param argName 名前
+     * @param argScore スコア
+     */
+    Student(String argName, int argScore) {
+        name = argName;
+        score = argScore;
     }
 
-    Student(String name) {
-        this(name, 0);
+    /**
+     * 名前を指定してインスタンスを生成する
+     * @param argName 名前
+     */
+    Student(String argName) {
+        name = argName;
     }
 
     String getName() {
@@ -27,6 +42,9 @@ class Student {
         this.score = score;
     }
 
+    /**
+     * 点数を標準出力に表示する
+     */
     void printScore() {
         int MAX_SCORE = 100;
         System.out.println(name + "さんは" + MAX_SCORE + "点満点中、" + score + "点です");
