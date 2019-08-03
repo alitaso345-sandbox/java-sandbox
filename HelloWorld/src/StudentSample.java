@@ -1,14 +1,11 @@
 public class StudentSample {
     public static void main(String... args) {
-        Student murata = new Student();
+        Student murata = new Student("村田");
 
-        murata.name = "村田";
         murata.score = 80;
         murata.printScore();
 
-        Student okada = new Student();
-        okada.name = "岡田";
-        okada.score = 90;
+        Student okada = new Student("岡田", 90);
         okada.printScore();
     }
 }
