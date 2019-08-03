@@ -6,10 +6,4 @@ public class StaticTest {
     static String staticMethod() {
         return "yay!";
     }
-
-    String instanceField = GREETING_MESSAGE;
-
-    String instanceMethod() {
-        return instanceField + " " + staticField + " " + staticMethod();
-    }
 }
