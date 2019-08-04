@@ -1,17 +1,27 @@
 public class Main {
 
     public static void main(String[] args) {
-        StringStack strStack = new StringStack();
-        String strElement = strStack.pop();
+        GenericStack<String> genStack = new GenericStack<>();
 
-        strStack.push("Scala");
-        strStack.push("Groovy");
-        strStack.push("Java");
+        genStack.push("Scala");
+        genStack.push("Groovy");
+        genStack.push("Java");
 
-        strElement = strStack.pop();
+        String genElement = genStack.pop();
 
-        if (strElement != null) {
-            System.out.println(strElement);
+        if (genElement != null) {
+            System.out.println(genElement);
+        }
+
+        GenericStack<Integer> genStack2 = new GenericStack<>();
+
+        genStack2.push(100);
+        genStack2.push(200);
+
+        Integer genElement2 = genStack2.pop();
+
+        if (genElement2 != null) {
+            System.out.println(genElement2);
         }
     }
 }
