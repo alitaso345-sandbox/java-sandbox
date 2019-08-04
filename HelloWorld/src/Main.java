@@ -1,25 +1,26 @@
-import java.util.Arrays;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
-import java.util.stream.Collectors;
-import java.util.stream.IntStream;
+import java.util.Map;
 
 public class Main {
 
     public static void main(String[] args) {
-        List<String> list = Arrays.asList("Murata", "Okada", "Tanimoto");
+        List<String> list = new ArrayList<>();
+        list.add("murata");
+        list.add("okada");
+        list.add("tanimoto");
+        list.add("sakamoto");
 
-        List<String> newList = list.stream()
-                .filter(p -> p.length() > 5)
-                .map(p -> "[" + p + "]")
-                .collect(Collectors.toList());
+        Map<Integer, List<String>> map = new HashMap<>();
+        list.forEach(name -> {
+            Integer nameLen = name.length();
 
-        newList.forEach(System.out::println);
+            // キーがないときだけ、空の List として値を与える
+            List<String> valueList = map.computeIfAbsent(nameLen, key -> new ArrayList<>());
+            valueList.add(name);
+        });
 
-        int count = 5;
-
-        String query = IntStream.range(0, count)
-                .mapToObj(i -> "?")
-                .collect(Collectors.joining(", "));
-        System.out.println(query);
+        System.out.println(map);
     }
 }
