@@ -6,7 +6,7 @@ public class AnonymousClassSample {
                 return false;
             }
         };
-        Task myTask = new Task();
+        Task myTask = new Task(TaskType.PRIVATE, "private task");
         taskHandler.handle(myTask);
     }
 }
