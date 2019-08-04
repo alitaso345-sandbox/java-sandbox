@@ -1,18 +1,17 @@
 public class Main {
 
     public static void main(String[] args) {
-        Task task = new Task(TaskType.PRIVATE, "by milk");
-        TaskType type = task.getType();
+        StringStack strStack = new StringStack();
+        String strElement = strStack.pop();
 
-        System.out.println(TaskType.PRIVATE.equals(type));
+        strStack.push("Scala");
+        strStack.push("Groovy");
+        strStack.push("Java");
 
-        switch (type) {
-            case PRIVATE:
-                System.out.println("Taks[type= " + type + "]");
-                break;
-            case WORK:
-                System.out.println("Task[type= " + type + "]");
-                break;
+        strElement = strStack.pop();
+
+        if (strElement != null) {
+            System.out.println(strElement);
         }
     }
 }
