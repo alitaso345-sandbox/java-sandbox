@@ -1,17 +1,16 @@
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Map.Entry;
-import java.util.stream.Stream;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Main {
 
     public static void main(String[] args) {
-        Map<String, String> map = new HashMap<>();
-        map.put("1", "Muata");
-        map.put("2", "Okada");
-        map.put("3", "Tanimoto");
+        List<Student> students = new ArrayList<>();
+        students.add(new Student("Ken", 100));
+        students.add(new Student("Shin", 60));
+        students.add(new Student("Takuya", 80));
 
-        Stream<Entry<String, String>> stream = map.entrySet().stream();
-        stream.forEach(e -> System.out.println(e.getKey() + ":" + e.getValue()));
+        students.stream()
+                .map(Student::getScore)
+                .forEach(System.out::println);
     }
 }
