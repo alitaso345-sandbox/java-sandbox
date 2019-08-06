@@ -1,26 +1,21 @@
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
 public class Main {
 
     public static void main(String[] args) {
-        List<String> list = new ArrayList<>();
-        list.add("murata");
-        list.add("okada");
-        list.add("tanimoto");
-        list.add("sakamoto");
+        String env = "PostgreSQL";
 
-        Map<Integer, List<String>> map = new HashMap<>();
-        list.forEach(name -> {
-            Integer nameLen = name.length();
+        Factory factory = createFactory(env);
+        Connection connection = factory.getConnection();
+        Configuration configuration = factory.getConfiguration();
+    }
 
-            // キーがないときだけ、空の List として値を与える
-            List<String> valueList = map.computeIfAbsent(nameLen, key -> new ArrayList<>());
-            valueList.add(name);
-        });
-
-        System.out.println(map);
+    private static Factory createFactory(String env) {
+        switch (env) {
+            case "PostgreSQL":
+                return new PostgreSQLFactory();
+            case "MySQL":
+                return new MySQLFactory();
+            default:
+                throw new IllegalArgumentException();
+        }
     }
 }
