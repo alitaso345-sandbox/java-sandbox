@@ -1,3 +1,3 @@
-public interface Target {
-    void process();
+public abstract class Target {
+    abstract void process();
 }

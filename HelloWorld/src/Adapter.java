@@ -1,6 +1,12 @@
-public class Adapter extends OldSystem implements Target {
+public class Adapter extends Target {
+    private OldSystem oldSystem;
+
+    public Adapter() {
+        this.oldSystem = new OldSystem();
+    }
+
     @Override
     public void process() {
-        oldProcess();
+        this.oldSystem.oldProcess();
     }
 }
