@@ -1,22 +1,22 @@
 public class Main {
 
     public static void main(String[] args) {
-        File file1 = new File("file1");
-        File file2 = new File("file2");
-        File file3 = new File("file3");
-        File file4 = new File("file4");
+        Book comic = new Book(500);
+        Book technicalBook = new Book(250);
 
-        Directory dir1 = new Directory("dir1");
-        dir1.add(file1);
+        Command discountCommand = new DiscountCommand();
+        Command specialDiscountCommand = new SpecialDiscountCommand();
 
-        Directory dir2 = new Directory("dir2");
-        dir2.add(file2);
-        dir2.add(file3);
+        discountCommand.setBook(comic);
+        discountCommand.execute();
+        System.out.println("割引後価格は、" + comic.getAmount() + "円");
 
-        dir1.add(dir2);
+        discountCommand.setBook(technicalBook);
+        discountCommand.execute();
+        System.out.println("割引後価格は、" + technicalBook.getAmount() + "円");
 
-        dir1.add(file4);
-
-        dir1.remove();
+        specialDiscountCommand.setBook(technicalBook);
+        specialDiscountCommand.execute();
+        System.out.println("割引後価格は、" + technicalBook.getAmount() + "円");
     }
 }
