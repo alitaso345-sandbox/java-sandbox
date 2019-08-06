@@ -1,9 +1,7 @@
 public class Main {
 
     public static void main(String[] args) {
-        Builder builder = new TopPageBuilder();
-        Director director = new Director(builder);
-
-        Page page = director.construct();
+        Target target = new Adapter();
+        target.process();
     }
 }
