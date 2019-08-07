@@ -10,6 +10,6 @@ public class Director {
         builder.createContents();
         builder.createFooter();
 
-        return builder.getResult()
+        return builder.getResult();
     }
 }

@@ -2,21 +2,17 @@ public class Main {
 
     public static void main(String[] args) {
         Book comic = new Book(500);
-        Book technicalBook = new Book(250);
+        Book technicalBook = new Book(2500);
 
-        Command discountCommand = new DiscountCommand();
-        Command specialDiscountCommand = new SpecialDiscountCommand();
+        Strategy discountStrategy = new DiscountStrategy();
+        Strategy specialDiscountStrategy = new SpecialDiscountStrategy();
 
-        discountCommand.setBook(comic);
-        discountCommand.execute();
-        System.out.println("割引後価格は、" + comic.getAmount() + "円");
+        Shop shop = new Shop(discountStrategy);
+        shop.sell(comic);
+        System.out.println("割引後金額は、" + comic.getAmount() + "円。");
 
-        discountCommand.setBook(technicalBook);
-        discountCommand.execute();
-        System.out.println("割引後価格は、" + technicalBook.getAmount() + "円");
-
-        specialDiscountCommand.setBook(technicalBook);
-        specialDiscountCommand.execute();
-        System.out.println("割引後価格は、" + technicalBook.getAmount() + "円");
+        shop.setStrategy(specialDiscountStrategy);
+        shop.sell(technicalBook);
+        System.out.println("割引後金額は、" + technicalBook.getAmount() + "円");
     }
 }
