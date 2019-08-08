@@ -1,18 +1,18 @@
 public class Main {
 
     public static void main(String[] args) {
-        Book comic = new Book(500);
-        Book technicalBook = new Book(2500);
+        Observer observer = new Client();
+        Subject dataChanger = new DataChanger();
 
-        Strategy discountStrategy = new DiscountStrategy();
-        Strategy specialDiscountStrategy = new SpecialDiscountStrategy();
+        dataChanger.addObserver(observer);
+        for (int count = 0; count < 10; count++) {
+            dataChanger.execute();
 
-        Shop shop = new Shop(discountStrategy);
-        shop.sell(comic);
-        System.out.println("割引後金額は、" + comic.getAmount() + "円。");
-
-        shop.setStrategy(specialDiscountStrategy);
-        shop.sell(technicalBook);
-        System.out.println("割引後金額は、" + technicalBook.getAmount() + "円");
+            try {
+                Thread.sleep(500);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
     }
 }
